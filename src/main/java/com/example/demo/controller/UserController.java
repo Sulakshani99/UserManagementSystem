@@ -18,16 +18,25 @@ public class UserController {
 
     @GetMapping ("/getusers")
     public List<UserDTO> getUsers(){
+
         return userService.getAllUsers();
+    }
+
+    @GetMapping ("/user/{userId}")
+    public UserDTO getUserById(@PathVariable Integer userId){
+
+        return userService.getUserById(userId);
     }
 
     @PostMapping ("/adduser")
     public UserDTO createUser(@RequestBody UserDTO userDTO){
+
         return userService.createUser(userDTO);
     }
 
     @PutMapping ("/updateuser")
     public UserDTO updateUser(@RequestBody UserDTO userDTO){
+
         return userService.updateUser(userDTO);
     }
 
